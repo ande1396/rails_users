@@ -1,0 +1,19 @@
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+
+<%= simple_form_for @user, :url => sessions_path, :method => :post, :html => {:class => 'pull-left', :id => 'login_user'} do |f| %>
+	<h1>Login</h1>
+	<% if flash[:error] %>
+		<p><%= flash[:error] %></p>
+	<% end %>
+  <%= f.input :email, label: 'Email' %>
+  <%= f.input :password, label: 'Password' %>
+  <%= f.button :submit, value:'Login', class: 'btn btn-primary'%>
+<% end %>
+</div>
+
+
+<h4>If not a registed user, send a link here to register on User/new</h4>
+
+<%= link_to 'Register', new_user_path, :class => "btn btn-primary", method: :get %>

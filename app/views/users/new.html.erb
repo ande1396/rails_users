@@ -1,0 +1,23 @@
+<%# provide :title, "Register" %>
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<h1>Need to create a new user first</h1>
+
+<h3>Simple form</h3>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p class='text-error'><%= error %></p>
+	<% end %>
+<% end %>
+
+
+<%= simple_form_for @user, :html => {:class => 'pull-left'} do |f| %>
+	<h1>Register</h1>
+  <%= f.input :name, label: 'Name' %>
+  <%= f.input :email, label: 'Email' %>
+  <%= f.input :password, label: 'Password' %>
+  <%= f.input :password_confirmation, label: 'Confirm Password' %>
+  <%= f.button :submit, value:'Register', class: 'btn btn-primary', :title => "Register" %>
+<% end %>

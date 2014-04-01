@@ -1,0 +1,34 @@
+<% provide :title, "Single User" %>
+
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<h1>Make this display all of the users</h1>
+
+
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>  
+
+
+<tr>
+	<td><%= @user.name %></td> 
+
+</tr>
+
+<% @user.comments_received.each do |c| %>
+	<p><%= c.name %></p>
+	<p><%= c.content %></p> 
+<% end %>
+
+
+ <%= simple_form_for @comment, :html => {:class => 'pull-left'} do |f| %>
+	<h1>Comments</h1>
+  <%= f.input :name, label: 'Name' %>
+  <%= f.input :content, label: 'Comment on this user' %>
+  <%= f.hidden_field :commented_id, value: @user.id %> 
+  <%= f.button :submit, value:'Comment', class: 'btn btn-primary'%>
+<% end %>
+
+
+<%= button_to 'Back', users_path, :class => "btn btn-primary", method: :get %>

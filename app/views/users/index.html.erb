@@ -1,0 +1,30 @@
+<% provide :title, "All Users Page" %>
+
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<h1>This needs to show the list of users</h1>
+
+<table>
+	<theah>
+		<tr>
+			<th><u>User</u></th>
+		</tr>
+	</thead>
+
+	<tbody>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= link_to 'Show', user, :class => "btn btn-success" %></td> 
+				</tr>
+	</tbody> 
+<% end %>
+</table> 
+
+<%= button_to 'logout', logout_path, :class => "btn btn-primary", method: :delete %>
+
+<form action="/logout" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="hidden" name="_method" value="delete">	
+	<input type="submit" value="Logout">
+</form>
