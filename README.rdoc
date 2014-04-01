@@ -2,6 +2,8 @@
 
 Ruby on Rails
 
-Users register, login, and make comments on each other's pages
-When the users login a session is started
-To make comments the user either recieves a commented_id or a commenter_id
+Users register, login, and make comments on each other's pages.
+
+When the users login a session is started.
+
+To make comments the user either recieves a commented_id or a commenter_id.
